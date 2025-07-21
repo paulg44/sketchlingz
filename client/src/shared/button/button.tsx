@@ -1,5 +1,5 @@
-import { Button } from "antd";
-import type { ISharedButton } from "./button.interface";
+import { Button } from 'antd';
+import type { ISharedButton } from './button.interface';
 
 const SharedButton = ({ type, appearance }: ISharedButton) => {
   return (

@@ -1,10 +1,10 @@
-import SharedButton from "../../shared/button/button";
+import SharedButton from '../../shared/button/button';
 
 const Homepage = () => {
   return (
     <div>
       <h1>Sketchlingz</h1>
-      <SharedButton appearance="link" />
+      <SharedButton appearance='link' />
     </div>
   );
 };

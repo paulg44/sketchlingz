@@ -1,9 +1,7 @@
+import AppRouting from "./core/routing/app-routing";
+
 function SketchlingzApp() {
-  return (
-    <>
-      <p>Sketchlingz</p>
-    </>
-  );
+  return <AppRouting />;
 }
 
 export default SketchlingzApp;

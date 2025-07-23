@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router';
-import Homepage from '../../modules/home/Homepage';
+import HomepageRouting from '../../modules/home/homepage-routing';
 
 const AppRouting = () => {
   return (
     <Routes>
-      <Route path='/' element={<Homepage />} />
+      <Route path='/' element={<HomepageRouting />} />
     </Routes>
   );
 };

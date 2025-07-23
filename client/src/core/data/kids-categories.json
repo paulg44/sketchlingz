@@ -1,0 +1,20 @@
+{
+  "kidsCategories": {
+    "shapes": {
+      "image": "../assets/images/backgroundImages/shapesBg.png",
+      "items": ["circle", "square", "triangle", "star"]
+    },
+    "letters": {
+      "image": "../assets/images/backgroundImages/alphabetBg.png",
+      "items": ["A", "B", "C", "D"]
+    },
+    "numbers": {
+      "image": "../assets/images/backgroundImages/numbersBg.png",
+      "items": ["One", "Two", "Three", "Four"]
+    },
+    "animals": {
+      "image": "../assets/images/backgroundImages/animalBg.png",
+      "items": ["cat", "dog", "elephant", "octopus"]
+    }
+  }
+}

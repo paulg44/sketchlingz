@@ -13,7 +13,7 @@ const SharedCategoryCard = ({ title }: ISharedCategoryCard) => {
   return (
     <div>
       {mainCategories.map((categoryItem, index) => (
-        <Card key={index} title={categoryItem}>
+        <Card className='w-sm' key={index} title={categoryItem}>
           {title}
         </Card>
       ))}

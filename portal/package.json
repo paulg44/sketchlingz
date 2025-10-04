@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.26.6",
+    "clsx": "^2.1.1",
     "konva": "^9.3.22",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

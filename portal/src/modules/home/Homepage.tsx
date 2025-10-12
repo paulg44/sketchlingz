@@ -1,6 +1,8 @@
 import SharedButton from '../../shared/button/button';
 import SharedCard from '../../shared/card/card';
 import categories from '../../core/data/kids-categories.json';
+import { CanvasProvider } from '../../core/providers/canvas-context';
+import Canvas from '../../shared/canvas/canvas';
 
 const Homepage = () => {
   const categoriesList = Object.keys(categories.kidsCategories);
@@ -16,6 +18,10 @@ const Homepage = () => {
           </SharedCard>
         ))}
       </div>
+      {/* Canvas for testing purposes */}
+      <CanvasProvider>
+        <Canvas />
+      </CanvasProvider>
     </div>
   );
 };

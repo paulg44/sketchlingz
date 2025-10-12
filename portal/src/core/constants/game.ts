@@ -1,1 +1,0 @@
-// game types for typescript

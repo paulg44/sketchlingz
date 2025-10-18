@@ -24,6 +24,7 @@ export const CategoryProvider = ({ children }: ProviderProps) => {
         id: doc.id,
         ...doc.data(),
       })) as Category[];
+      console.log('Fetched categories:', fetchedCategories);
       setCategories(fetchedCategories);
       setLoading(false);
     } catch (error) {

@@ -7,3 +7,11 @@ export interface Item {
   createdAt?: Date;
   updatedAt?: Date;
 }
+
+export interface ItemContextType {
+  items: Item[];
+  randomItem: Item | null;
+  loading: boolean;
+  error: string | null;
+  respinItem: () => void;
+}

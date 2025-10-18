@@ -4,6 +4,7 @@ import { CanvasProvider } from '../../core/providers/canvas-context';
 import Canvas from '../../shared/canvas/canvas';
 import { useCategory } from '../../core/providers/category-context';
 import { useItem } from '../../core/providers/item-context';
+import RandomItemDisplay from '../../shared/random-item-display/random-item-display';
 
 const Homepage = () => {
   const { categories, selectedCategory, selectCategory } = useCategory();
@@ -28,11 +29,7 @@ const Homepage = () => {
         ))}
         <div>
           <h2>{categorySelected}</h2>
-          {randomItem && (
-            <SharedCard title={randomItem.name}>
-              <img src={randomItem.imageUrl} alt={randomItem.name} />
-            </SharedCard>
-          )}
+          {randomItem && <RandomItemDisplay {...randomItem} imageUrl={randomItem.imageUrl ?? ''} />}
         </div>
         <SharedButton labelKey='Respin Item' onClick={respinItem} appearance='primary' />
       </div>

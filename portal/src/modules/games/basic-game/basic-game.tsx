@@ -1,13 +1,24 @@
+import { useCategory } from '../../../core/providers/category-context';
+import { useItem } from '../../../core/providers/item-context';
+import SharedButton from '../../../shared/button/button';
 import Canvas from '../../../shared/canvas/canvas';
 import RandomItemDisplay from '../../../shared/random-item-display/random-item-display';
 
 const BasicGame = () => {
+  const { randomItem, respinItem } = useItem();
+  const { selectedCategory } = useCategory();
+
+  if (!selectedCategory) {
+    return <div>Please select a category to start the game.</div>;
+  }
+
   return (
     <div>
-      <RandomItemDisplay
-        name='test'
-        imageUrl='https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVzdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500'
-      />
+      <div>
+        <h2>Category: {selectedCategory.name}</h2>
+        {randomItem && <RandomItemDisplay {...randomItem} imageUrl={randomItem?.imageUrl ?? ''} />}{' '}
+        <SharedButton labelKey='Respin Item' onClick={respinItem} appearance='primary' />
+      </div>
       <h2>Basic Game!</h2>
       <Canvas />
     </div>

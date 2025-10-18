@@ -4,7 +4,7 @@ interface RandomItemDisplayProps {
   altText?: string;
 }
 
-const randomItemDisplay = (randomItem: RandomItemDisplayProps) => {
+const RandomItemDisplay = (randomItem: RandomItemDisplayProps) => {
   if (!randomItem) {
     return <div>No item to display</div>;
   }
@@ -17,4 +17,4 @@ const randomItemDisplay = (randomItem: RandomItemDisplayProps) => {
   );
 };
 
-export default randomItemDisplay;
+export default RandomItemDisplay;

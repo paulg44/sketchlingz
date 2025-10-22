@@ -10,4 +10,4 @@ if (!apiKey) {
 
 const genAI = new GoogleGenAI({ apiKey });
 
-export const getAIModel = () => genAI.models.get({ model: "gemini-1.5-flash" });
+export const getAIModel = () => genAI.models.get({ model: "gemini-2.0-flash" });

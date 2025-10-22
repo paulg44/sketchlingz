@@ -30,7 +30,6 @@ export const ItemProvider = ({ children }: ProviderProps) => {
           id: doc.id,
           ...doc.data(),
         })) as Item[];
-        console.log('Fetched items:', fetchedItems);
         setItems(fetchedItems);
         const random = getRandomItem(fetchedItems);
 

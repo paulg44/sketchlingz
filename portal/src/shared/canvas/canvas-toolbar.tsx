@@ -1,6 +1,6 @@
 import { useCanvasContext } from '../../core/providers/canvas-context';
 import { HexColorPicker } from 'react-colorful';
-import { Trash, Undo } from 'lucide-react';
+import { Save, Trash, Undo } from 'lucide-react';
 import { Popover } from 'antd';
 
 const CanvasToolbar = () => {
@@ -9,6 +9,7 @@ const CanvasToolbar = () => {
   const icons = {
     undo: <Undo size={16} />,
     clear: <Trash size={16} />,
+    save: <Save size={16} />,
   };
 
   return (
@@ -24,6 +25,7 @@ const CanvasToolbar = () => {
       </Popover>
 
       <div>
+        {/* Change these buttons to shared? */}
         <button onClick={undoLastStroke} className='px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50'>
           {icons.undo}
         </button>
@@ -33,6 +35,10 @@ const CanvasToolbar = () => {
           className='ml-2 px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50'
         >
           {icons.clear}
+        </button>
+
+        <button onClick={() => {}} className='ml-2 px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50'>
+          {icons.save}
         </button>
       </div>
     </div>

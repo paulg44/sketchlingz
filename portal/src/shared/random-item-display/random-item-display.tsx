@@ -12,7 +12,7 @@ const RandomItemDisplay = (randomItem: RandomItemDisplayProps) => {
   return (
     <div>
       <h2>{randomItem.name}</h2>
-      <img src={randomItem.imageUrl} alt={randomItem.altText || randomItem.name} />
+      <img className='w-3xs' src={randomItem.imageUrl} alt={randomItem.altText || randomItem.name} />
     </div>
   );
 };

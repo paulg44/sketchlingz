@@ -20,11 +20,12 @@ const Homepage = () => {
   return (
     <div>
       <h1>Sketchlingz</h1>
-      <div className='flex flex-col gap-4'>
+      <div className='flex gap-4'>
         {categories.map((category, index) => (
           <SharedCard key={index} title={category.id}>
             {
               <SharedButton
+                className='w-[100px]'
                 labelKey={category?.name}
                 onClick={() => selectCategory(category.id)}
                 appearance='primary'

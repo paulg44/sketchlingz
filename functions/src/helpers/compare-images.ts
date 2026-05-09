@@ -33,16 +33,19 @@ If the drawing is just a scribble, a single line, or resembles something other t
 
 Return only one word or phrase: "Excellent" for scores over 95, "Great" for scores between 80-94, "Good" for scores between 60-79, or "Try Again" for anything below 59. Nothing else.`;
 
-export const compareImages = onCall(async (request) => {
+export const compareImages = onCall({ cors: true }, async (request) => {
   const { userImage, randomImageName } = request.data as CompareImagesRequest;
 
   if (!userImage || !randomImageName) {
-    throw new HttpsError("invalid-argument", "Missing userImage or randomImageName");
+    throw new HttpsError(
+      "invalid-argument",
+      "Missing userImage or randomImageName",
+    );
   }
 
   try {
     const response = await genAI.models.generateContent({
-      model: "gemini-2.0-flash",
+      model: "gemini-2.5-flash",
       contents: [
         {
           role: "user",

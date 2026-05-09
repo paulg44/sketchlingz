@@ -8,6 +8,4 @@ if (!apiKey) {
   throw new Error("GEMINI_API_KEY is not set in environment variables.");
 }
 
-const genAI = new GoogleGenAI({ apiKey });
-
-export const getAIModel = () => genAI.models.get({ model: "gemini-2.0-flash" });
+export const genAI = new GoogleGenAI({ apiKey });

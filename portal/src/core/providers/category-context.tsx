@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../config/firebase';
+import { fetchCategories as fetchCategoriesService } from '../../services/category.service';
 import type { Category, CategoryContextType } from '../types/categoryTypes';
 
 const categoryContext = createContext<CategoryContextType | null>(null);
@@ -19,16 +18,11 @@ export const CategoryProvider = ({ children }: ProviderProps) => {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const snapshot = await getDocs(collection(db, 'categories'));
-      const fetchedCategories = snapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Category[];
-      console.log('Fetched categories:', fetchedCategories);
+      const fetchedCategories = await fetchCategoriesService();
       setCategories(fetchedCategories);
       setLoading(false);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
+    } catch (err) {
+      console.error('Error fetching categories:', err);
       setError('Failed to fetch categories');
       setLoading(false);
     }

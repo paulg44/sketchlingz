@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\paulg\\\\Documents\\\\this_laptop_projects\\\\ivy_drawing_game\" -Recurse -Force | Where-Object { $_.PSIsContainer -eq $false } | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\paulg\\\\Documents\\\\this_laptop_projects\\\\ivy_drawing_game\\\\drawing_game\" -Recurse -Force | Where-Object { $_.PSIsContainer -eq $false -and $_.FullName -notmatch '\\\\.git' } | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\paulg\\\\Documents\\\\this_laptop_projects\\\\ivy_drawing_game\\\\drawing_game\" -Recurse -Force | Where-Object { $_.PSIsContainer -eq $false -and $_.FullName -notmatch '\\\\.git|node_modules' } | Select-Object -ExpandProperty FullName | Sort-Object)"
+    ]
+  }
+}

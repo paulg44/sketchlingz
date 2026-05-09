@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 const Homepage = () => {
   const navigate = useNavigate();
   const { categories, selectedCategory, selectCategory } = useCategory();
+  console.log('Selected Category:', selectedCategory);
+  console.log('Categories:', categories);
   const { randomItem, respinItem } = useItem();
   const categorySelected = selectedCategory ? `Selected Category: ${selectedCategory.name}` : 'No category selected';
 

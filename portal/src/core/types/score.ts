@@ -1,7 +1,9 @@
+export type ScoreLabel = 'Excellent' | 'Great' | 'Good' | 'Try Again';
+
 export interface ScoreContextType {
-  score: string | null;
-  setScore: (score: string | null) => void;
+  score: ScoreLabel | null;
+  setScore: (score: ScoreLabel | null) => void;
   randomItem: string;
-  handleCalculateScore: (base64String: string, imageName: string) => Promise<number | null>;
+  handleCalculateScore: (base64String: string, imageName: string) => Promise<ScoreLabel | null>;
   isDisabled: boolean;
 }

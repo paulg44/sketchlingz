@@ -1,7 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../config/firebase';
+import { fetchItemsByCategory } from '../../services/item.service';
 import type { Item, ItemContextType } from '../types/items';
 import { useCategory } from './category-context';
 import { getRandomItem } from '../helpers/random-item-helper';
@@ -24,24 +23,17 @@ export const ItemProvider = ({ children }: ProviderProps) => {
       if (!selectedCategory) return;
       try {
         setLoading(true);
-        const q = query(collection(db, 'items'), where('categoryId', '==', categoryId));
-        const snapshot = await getDocs(q);
-        const fetchedItems = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        })) as Item[];
+        const fetchedItems = await fetchItemsByCategory(categoryId);
         setItems(fetchedItems);
-        const random = getRandomItem(fetchedItems);
-
-        setRandomItem(random);
+        setRandomItem(getRandomItem(fetchedItems));
         setLoading(false);
-      } catch (error) {
-        console.error('Error fetching items:', error);
+      } catch (err) {
+        console.error('Error fetching items:', err);
         setError('Failed to fetch items');
         setLoading(false);
       }
     },
-    [selectedCategory]
+    [selectedCategory],
   );
 
   useEffect(() => {

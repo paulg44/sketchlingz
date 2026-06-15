@@ -3,6 +3,7 @@ import { CategoryProvider } from './core/providers/category-context';
 import { ItemProvider } from './core/providers/item-context';
 import { ScoreProvider } from './core/providers/score-context';
 import AppRouting from './core/routing/app-routing';
+import Navbar from './shared/navbar/navbar';
 
 function SketchlingzApp() {
   return (
@@ -10,6 +11,7 @@ function SketchlingzApp() {
       <ItemProvider>
         <ScoreProvider randomItem=''>
           <CanvasProvider>
+            <Navbar />
             <AppRouting />
           </CanvasProvider>
         </ScoreProvider>

@@ -3,7 +3,7 @@ import monsterLogo from '../../assets/images/sketchlingz_monster.png.png';
 
 const Navbar = () => {
   return (
-    <nav className='border-b-amber-600 display flex items-center justify-between border-b-2 bg-gray-800 p-4 text-white'>
+    <nav className='flex items-center justify-between p-4 text-white bg-blue-800'>
       <img src={monsterLogo} alt='Logo' className='h-10' />
 
       <div>

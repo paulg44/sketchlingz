@@ -5,8 +5,8 @@ import SharedButton from '../../shared/button/button';
 const Homepage = () => {
   const navigate = useNavigate();
   return (
-    <div className='flex flex-col items-center'>
-      <img src={headerImage} alt='main header image' className='border' />
+    <div className='flex flex-col items-center bg-linear-to-b from-blue-800 to-indigo-900 h-screen'>
+      <img src={headerImage} alt='main header image' />
       <div>
         <SharedButton labelKey='Play Games' appearance='primary' onClick={() => navigate('/games')} />
         <SharedButton labelKey='Start Drawing' appearance='primary' onClick={() => navigate('/just-draw')} />

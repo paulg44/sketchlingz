@@ -11,8 +11,6 @@ const Navbar = () => {
 
         <ul className='flex space-x-4'>
           <Link to='/'>Home</Link>
-          <Link to='just-draw'>Draw</Link>
-          <Link to='games'>Games</Link>
           <Link to='settings'>Settings</Link>
         </ul>
       </div>

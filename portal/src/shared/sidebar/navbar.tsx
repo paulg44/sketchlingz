@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import monsterLogo from '../../assets/images/sketchlingz_monster.png.png';
+import Login from '../../modules/auth/login';
 
 const SharedSidebar = () => {
   return (
@@ -7,7 +8,7 @@ const SharedSidebar = () => {
       <div className='h-full flex flex-col items-start justify-between p-4'>
         <div>
           <img src={monsterLogo} alt='Logo' />
-          <button className=''>Sign In</button>
+          <Login />
         </div>
         <ul className='flex flex-col gap-2'>
           <Link to='/'>Home</Link>

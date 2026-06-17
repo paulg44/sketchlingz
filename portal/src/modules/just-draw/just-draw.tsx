@@ -1,4 +1,4 @@
-import Canvas from '../../../shared/canvas/canvas';
+import Canvas from '../../shared/canvas/canvas';
 
 const JustDraw = () => {
   return (

@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router';
 import HomepageRouting from '../../modules/home/home-routing';
 import JustDrawRouting from '../../modules/just-draw/just-draw-routing';
-import BasicGameRouting from '../../modules/games/basic-game/basic-game-routing';
 import GamesRouting from '../../modules/games/games-routing';
 import SettingsRouting from '../../modules/settings/settings-routing';
 
@@ -11,7 +10,6 @@ const AppRouting = () => {
       <Route path='*' element={<HomepageRouting />} />
       <Route path='games/*' element={<GamesRouting />} />
       <Route path='just-draw/*' element={<JustDrawRouting />} />
-      <Route path='basic-game/*' element={<BasicGameRouting />} />
       <Route path='settings/*' element={<SettingsRouting />} />
     </Routes>
   );

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import monsterLogo from '../../assets/images/sketchlingz_monster.png.png';
 
-const Navbar = () => {
+const SharedSidebar = () => {
   return (
     <nav className='fixed top-0 left-0 z-40 w-54 h-full p-4 text-white bg-blue-800 border-r border-gray-300'>
       <div className='h-full flex flex-col items-start justify-between p-4'>
@@ -18,4 +18,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default SharedSidebar;

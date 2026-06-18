@@ -15,7 +15,7 @@ const SharedSidebar = () => {
           <img src={monsterLogo} alt='Logo' />
           {isLoggedIn ? (
             <>
-              <p>{currentUser.email}</p>
+              <p>{currentUser.displayName}</p>
               <button onClick={signout}>Sign Out</button>
             </>
           ) : (

@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { Form, Input, Button } from 'antd';
 import { useState } from 'react';
 import { auth } from '../../core/config/firebase';
@@ -6,6 +6,7 @@ import { auth } from '../../core/config/firebase';
 interface LoginFormData {
   email: string;
   password: string;
+  username: string;
 }
 
 type Mode = 'login' | 'create';
@@ -22,7 +23,8 @@ const Login = () => {
       if (mode === 'login') {
         await signInWithEmailAndPassword(auth, data.email, data.password);
       } else {
-        await createUserWithEmailAndPassword(auth, data.email, data.password);
+        const { user } = await createUserWithEmailAndPassword(auth, data.email, data.password);
+        await updateProfile(user, { displayName: data.username });
       }
     } catch (error) {
       console.log(error);
@@ -38,6 +40,11 @@ const Login = () => {
         <Form.Item name='email' label='Email' rules={[{ required: true, message: 'Email is required' }]}>
           <Input type='email' placeholder='Enter your email' />
         </Form.Item>
+        {mode === 'create' && (
+          <Form.Item name='username' label='Username' rules={[{ required: true, message: 'Username is required' }]}>
+            <Input placeholder='Enter your username' />
+          </Form.Item>
+        )}
         <Form.Item name='password' label='Password' rules={[{ required: true, message: 'Password is required' }]}>
           <Input.Password placeholder='Enter your password' />
         </Form.Item>

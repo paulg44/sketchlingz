@@ -1,16 +1,18 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../core/config/firebase';
-import SharedForm from '../../shared/form/shared-form';
 
 interface LoginFormData {
   email: string;
   password: string;
 }
 
+type Mode = 'login' | 'create';
+
 const Login = () => {
   const [formSubmitting, setFormSubmitting] = useState(false);
-  const [formError, setFormError] = useState('');
+  const [formError, setFormError] = useState<string>('');
+  const [mode, setMode] = useState<Mode>('login');
 
   const onFormSubmit = async (data: LoginFormData) => {
     try {
@@ -18,12 +20,11 @@ const Login = () => {
       setFormSubmitting(true);
       await signInWithEmailAndPassword(auth, data.email, data.password);
     } catch (error) {
+      console.log(error);
       setFormSubmitting(false);
       setFormError('An error occurred while submitting the form. Please try again.');
     }
   };
-
-  return <SharedForm onFinish={onFormSubmit} name='LoginForm' layout='horizontal' fields={[]} />;
 };
 
 export default Login;

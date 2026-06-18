@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { createUserWithEmailAndPassword, type User } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signOut, type User } from 'firebase/auth';
 import React, { useContext, useEffect, useState } from 'react';
 import { auth } from '../config/firebase';
 import type { AuthContextType } from '../types/auth';
@@ -15,6 +15,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const signout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -26,6 +35,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const value = {
     currentUser,
     signup,
+    signout,
   };
   return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 };

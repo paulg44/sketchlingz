@@ -3,9 +3,9 @@ import CanvasToolbar from './canvas-toolbar';
 
 const Canvas = () => {
   return (
-    <div className='w-auto h-auto relative'>
+    <div className='w-auto h-full relative m-4 flex flex-col items-center justify-center'>
       <CanvasStage />
-      <div className='w-auto absolute bottom-0 right-0 flex justify-end z-10 border'>
+      <div className='w-full m-4 flex justify-end z-10 border'>
         <CanvasToolbar />
       </div>
     </div>

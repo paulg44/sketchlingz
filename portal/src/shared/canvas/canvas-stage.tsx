@@ -2,7 +2,16 @@ import { Layer, Line, Stage } from 'react-konva';
 import { useCanvasContext } from '../../core/providers/canvas-context';
 
 const CanvasStage = () => {
-  const { stageRef, lines, handleMouseDown, handleMouseMove, handleMouseUp, handleTouchStart, handleTouchMove, handleTouchEnd } = useCanvasContext();
+  const {
+    stageRef,
+    lines,
+    handleMouseDown,
+    handleMouseMove,
+    handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
+  } = useCanvasContext();
 
   return (
     <Stage
@@ -16,7 +25,7 @@ const CanvasStage = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       style={{ touchAction: 'none' }}
-      className='border border-gray-300 bg-white cursor-crosshair'
+      className='w-auto border border-gray-300 bg-white cursor-crosshair'
     >
       <Layer>
         {lines.map((line, index) => (

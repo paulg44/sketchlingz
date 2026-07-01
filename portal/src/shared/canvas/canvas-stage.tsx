@@ -15,8 +15,8 @@ const CanvasStage = () => {
 
   return (
     <Stage
-      width={800}
-      height={600}
+      width={window.innerWidth * 0.55}
+      height={window.innerHeight * 0.72}
       ref={stageRef}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}

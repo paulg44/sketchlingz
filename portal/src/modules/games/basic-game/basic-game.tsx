@@ -27,27 +27,14 @@ const BasicGame = () => {
         <CategorySelect />
       ) : (
         <div>
-          <div className='flex content-center items-center justify-center'>
+          <div className='flex'>
             {randomItem && <RandomItemDisplay {...randomItem} imageUrl={randomItem?.imageUrl ?? ''} />}
             <Canvas />
           </div>
-          <div className='m-4 p-4 border-t border-gray-300 flex items-center justify-start'>
-            <SharedButton
-              labelKey='Respin Item'
-              onClick={respinItem}
-              appearance='primary'
-              className='m-4'
-              icon={<RefreshCcw size={16} />}
-            />
-            <SharedButton
-              labelKey='Save Drawing'
-              onClick={handleSave}
-              disabled={score?.isDisabled}
-              icon={<Save size={16} />}
-              appearance='primary'
-              className='ml-2 px-3 py-1 bg-white border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed'
-            />
-            {score?.score && <span className='ml-4 font-semibold text-gray-700'>{score.score}</span>}
+          <div className='p-4 border-t border-gray-300 flex items-center gap-3'>
+            <SharedButton labelKey='Respin Item' onClick={respinItem} appearance='primary' icon={<RefreshCcw size={16} />} />
+            <SharedButton labelKey='Save Drawing' onClick={handleSave} disabled={score?.isDisabled} icon={<Save size={16} />} appearance='primary' />
+            {score?.score && <span className='font-semibold text-gray-700'>{score.score}</span>}
           </div>
         </div>
       )}

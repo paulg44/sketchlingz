@@ -13,7 +13,7 @@ const CanvasToolbar = () => {
   };
 
   return (
-    <div className='flex items-center space-x-4 p-4 border-b border-gray-300'>
+    <div className='w-full flex items-center space-x-4 p-4 border border-gray-300'>
       <select value={tool} onChange={(e) => setTool(e.target.value as 'pen' | 'eraser' | 'fill')}>
         <option value='pen'>Pen</option>
         <option value='eraser'>Eraser</option>

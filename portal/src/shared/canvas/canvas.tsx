@@ -3,11 +3,11 @@ import CanvasToolbar from './canvas-toolbar';
 
 const Canvas = () => {
   return (
-    <div className='flex flex-col items-center justify-center w-full h-auto relative'>
-      <div className='w-full absolute bottom-0 flex justify-end z-10'>
+    <div className='w-auto h-auto relative'>
+      <CanvasStage />
+      <div className='w-auto absolute bottom-0 right-0 flex justify-end z-10 border'>
         <CanvasToolbar />
       </div>
-      <CanvasStage />
     </div>
   );
 };

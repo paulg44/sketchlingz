@@ -31,7 +31,7 @@ A _bad_ ${itemName} drawing (1-39 points) would:
 
 If the drawing is just a scribble, a single line, or resembles something other than a ${itemName}, give it a very low score (below 20).
 
-Return only one word or phrase: "Excellent" for scores over 95, "Great" for scores between 80-94, "Good" for scores between 60-79, or "Try Again" for anything below 59. Nothing else.`;
+Return one word or phrase and the score in a number: "Excellent" for scores over 95, "Great" for scores between 80-94, "Good" for scores between 60-79, or "Try Again" for anything below 59. Nothing else.`;
 
 export const compareImages = onCall({ cors: true }, async (request) => {
   const { userImage, randomImageName } = request.data as CompareImagesRequest;

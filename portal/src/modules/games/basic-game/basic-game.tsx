@@ -10,7 +10,7 @@ const BasicGame = () => {
 
   return (
     <div>
-      <h1>Basic Game!</h1>
+      <h1>Basic Game!!</h1>
       {!selectedCategory ? (
         <CategorySelect />
       ) : (

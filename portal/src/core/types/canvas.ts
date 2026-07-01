@@ -24,7 +24,10 @@ export interface CanvasContextType {
   lines: Stroke[];
   handleMouseDown: (e: KonvaEventObject<MouseEvent>) => void;
   handleMouseMove: (e: KonvaEventObject<MouseEvent>) => void;
-  handleMouseUp: (e: KonvaEventObject<MouseEvent>) => void;
+  handleMouseUp: () => void;
+  handleTouchStart: (e: KonvaEventObject<TouchEvent>) => void;
+  handleTouchMove: (e: KonvaEventObject<TouchEvent>) => void;
+  handleTouchEnd: () => void;
   clearCanvas: () => void;
   undoLastStroke: () => void;
   setTool: (tool: ToolType) => void;

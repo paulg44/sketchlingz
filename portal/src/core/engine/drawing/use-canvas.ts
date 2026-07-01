@@ -11,38 +11,41 @@ export const useCanvas = () => {
   const [color, setColor] = useState<string>('#000000');
   const [brushSize, setBrushSize] = useState<number>(4);
 
-  const handleMouseDown = (e: KonvaEventObject<MouseEvent>) => {
-    setIsDrawing(true);
-    const stage = e.target.getStage();
+  const startDrawing = (stage: Stage | null) => {
     const point = stage?.getPointerPosition();
     if (!point) return;
-    const { x, y } = point;
-    const newLine: Stroke = {
-      tool,
-      color,
-      size: brushSize,
-      points: [{ x, y }],
-    };
-    setLines((prevLines) => [...prevLines, newLine]);
+    setIsDrawing(true);
+    setLines((prevLines) => [
+      ...prevLines,
+      { tool, color, size: brushSize, points: [{ x: point.x, y: point.y }] },
+    ]);
   };
 
-  const handleMouseMove = (e: KonvaEventObject<MouseEvent>) => {
-    const stage = e.target.getStage();
+  const continueDrawing = (stage: Stage | null) => {
+    if (!isDrawing) return;
     const point = stage?.getPointerPosition();
     if (!point) return;
-    if (!isDrawing) return;
-    const { offsetX, offsetY } = e.evt;
     setLines((prevLines) => {
       const updatedLines = [...prevLines];
       const lastLine = updatedLines[updatedLines.length - 1];
-      lastLine.points = [...lastLine.points, { x: offsetX, y: offsetY }];
+      lastLine.points = [...lastLine.points, { x: point.x, y: point.y }];
       return updatedLines;
     });
   };
 
-  const handleMouseUp = () => {
-    setIsDrawing(false);
+  const handleMouseDown = (e: KonvaEventObject<MouseEvent>) => startDrawing(e.target.getStage());
+  const handleMouseMove = (e: KonvaEventObject<MouseEvent>) => continueDrawing(e.target.getStage());
+  const handleMouseUp = () => setIsDrawing(false);
+
+  const handleTouchStart = (e: KonvaEventObject<TouchEvent>) => {
+    e.evt.preventDefault();
+    startDrawing(e.target.getStage());
   };
+  const handleTouchMove = (e: KonvaEventObject<TouchEvent>) => {
+    e.evt.preventDefault();
+    continueDrawing(e.target.getStage());
+  };
+  const handleTouchEnd = () => setIsDrawing(false);
 
   const clearCanvas = () => {
     setLines([]);
@@ -63,6 +66,9 @@ export const useCanvas = () => {
     handleMouseDown,
     handleMouseMove,
     handleMouseUp,
+    handleTouchStart,
+    handleTouchMove,
+    handleTouchEnd,
     clearCanvas,
     undoLastStroke,
   };
